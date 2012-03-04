@@ -1,0 +1,26 @@
+<html><head><title>MovingAverages</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>Moving averages are well known in stock charts analysis.
+They are used to emphasize the direction of a trend and to smooth out fluctuations.
+Athletes may use moving averages to analyze their training results.
+<br></br>
+<br></br>
+Given a String[] <b>times</b> containing the times from successive training sessions
+(e.g. the time to cycle a certain leg)
+and an int <b>n</b>, return a int[] containing the <b>n</b>-moving averages in seconds for
+these times, with each average rounded down.
+<br></br>
+<br></br>
+Each element of <b>times</b> is in the format <tt>&quot;hh:mm:ss&quot;</tt> (quotes for clarity), where <tt>hh</tt>,
+<tt>mm</tt> and <tt>ss</tt> are two digit numbers (with a leading zero if necessary) indicating the
+number of hours, minutes and seconds, respectively.
+<br></br>
+A n-moving average is the average (i.e. the arithmetic mean) of n consecutive times.
+So for t times given, t-n+1 n-moving averages are to be calculated.
+The first average is composed from the times 1 to n, the second average from the times 2 to n+1 and so on,
+the last average is composed from the times t-n+1 to t.
+<br></br>
+
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>MovingAverages</td></tr><tr><td>Method:</td><td>calculate</td></tr><tr><td>Parameters:</td><td>String[], int</td></tr><tr><td>Returns:</td><td>int[]</td></tr><tr><td>Method signature:</td><td>int[] calculate(String[] times, int n)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>times</b> contains between 1 and 50 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>times</b> is in the format <tt>&quot;hh:mm:ss&quot;</tt> (quotes for clarity), where<br></br><tt>hh</tt> is a two digit number (with a leading zero if necessary) between 0 and 23, inclusive,<br></br><tt>mm</tt> is a two digit number (with a leading zero if necessary) between 0 and 59, inclusive,<br></br><tt>ss</tt> is a two digit number (with a leading zero if necessary) between 0 and 59, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>n</b> is between 1 and the number of elements in <b>times</b>, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;01:19:10&quot;, &quot;01:17:40&quot;, &quot;01:19:44&quot;, &quot;01:17:23&quot;, &quot;01:17:07&quot;}</pre></td></tr><tr><td><pre>3</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 4731,  4695,  4684 }</pre></td></tr><tr><td><table><tr><td colspan="2">4731 (01:18:51) is the average of of the first three times, namely 01:19:10, 01:17:40, and 01:19:44.<br></br>
+4695 (01:18:15) is the average of the middle three times (01:17:40, 01:19:44, 01:17:23).<br></br>
+Finally, 4684 (01:18:04) is the average of the last three times (01:19:44, 01:17:23, 01:17:07).
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;01:19:10&quot;, &quot;01:17:40&quot;, &quot;01:19:44&quot;, &quot;01:17:23&quot;, &quot;01:17:07&quot;}</pre></td></tr><tr><td><pre>1</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 4750,  4660,  4784,  4643,  4627 }</pre></td></tr><tr><td><table><tr><td colspan="2">The 1-moving averages are just the times given.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;01:19:10&quot;, &quot;01:17:40&quot;, &quot;01:19:44&quot;, &quot;01:17:23&quot;, &quot;01:17:07&quot;}</pre></td></tr><tr><td><pre>5</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 4692 }</pre></td></tr><tr><td><table><tr><td colspan="2">The 5-moving averages of five times is just one value, the average of all the five values.
+</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

@@ -1,0 +1,61 @@
+<html><head><title>grafixClick</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+
+<i><b>Note:</b> This problem statement includes an image that may
+not appear if you are using a plugin. For best results, use the Arena
+editor.</i>
+
+</p>
+<p>
+
+You have been hired to work on a graphics application called grafix. The
+interface includes several buttons that the user can click on during 
+a session. One of these is the Save button, which appears in the
+application window as a rectangle composed of pixels. The location of
+each pixel is given by a pair of integers that specify the pixel's row
+number and column number, in that order. Such an integer pair is called
+the <i>window coordinates</i> of a pixel. Rows are numbered from top to
+bottom, and columns are numbered from left to right.
+
+</p>
+<p>
+
+The top left corner of the Save button has window coordinates (20, 50),
+meaning that it is a pixel occupying the 20th row from the top and the
+50th column from the left. The bottom right corner of the Save button
+has window coordinates (39, 99). If the user clicks her mouse on any
+pixel within or on the border of the rectangle defined by these points,
+she is considered to have activated the Save button. Below is a magnified
+image of the Save button, showing the numbers of its rows and columns.
+
+</p>
+<p>
+
+<center>
+  <img src="http://www.topcoder.com/contest/problem/grafixClick/grafixClick_diagram_1.png"></img>
+
+</center>
+
+</p>
+<p>
+
+Given a sequence of mouse clicks, your job is to determine which ones have
+activated the Save button. For each mouse click, the int[]
+<b>mouseRows</b> contains the row number of its window coordinates, 
+while the int[] <b>mouseCols</b> contains its column
+number. The values in each int[] are in corresponding order,
+so the <i>n</i>th element of <b>mouseRows</b> and the <i>n</i>th element
+of <b>mouseCols</b> make up the window coordinates of the <i>n</i>th
+mouse click. You are to return a int[] containing, in ascending 
+order, the zero-based index of each mouse click that activates the
+Save button.
+
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>grafixClick</td></tr><tr><td>Method:</td><td>checkSaveButton</td></tr><tr><td>Parameters:</td><td>int[], int[]</td></tr><tr><td>Returns:</td><td>int[]</td></tr><tr><td>Method signature:</td><td>int[] checkSaveButton(int[] mouseRows, int[] mouseCols)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>Window coordinates are not the same as Cartesian coordinates. Follow the definition given in the first paragraph of the problem statement.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>mouseRows</b> contains between 1 and 50 elements, inclusive</td></tr><tr><td align="center" valign="top">-</td><td><b>mouseRows</b> and <b>mouseCols</b> each contain the same number of elements</td></tr><tr><td align="center" valign="top">-</td><td>each element in <b>mouseRows</b> is between 0 and 399, inclusive</td></tr><tr><td align="center" valign="top">-</td><td>each element in <b>mouseCols</b> is between 0 and 599, inclusive</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{20, 39, 100}</pre></td></tr><tr><td><pre>{99, 50, 200}</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 0,  1 }</pre></td></tr><tr><td><table><tr><td colspan="2">The first click, with window coordinates (20, 99), falls on the top right corner of the Save button. The second click is on the bottom left corner at (39, 50). The third click has window coordinates (100, 200) and falls outside the button.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 100, 399}</pre></td></tr><tr><td><pre>{0, 200, 599}</pre></td></tr></table></td></tr><tr><td><pre>Returns: { }</pre></td></tr><tr><td><table><tr><td colspan="2">None of these clicks activate the Save button.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{30}</pre></td></tr><tr><td><pre>{75}</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 0 }</pre></td></tr><tr><td><table><tr><td colspan="2">Bull's-eye!</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{10, 20, 30, 30, 30, 30, 34, 35, 345}</pre></td></tr><tr><td><pre>{10, 20, 30, 50, 60, 80, 34, 35, 345}</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 3,  4,  5 }</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{57, 28, 18, 25, 36, 12, 33, 44, 13, 32,
+ 32, 51, 11, 27, 8, 51, 17, 34, 10, 16,
+ 47, 57, 20, 57, 32, 14, 13, 37, 10, 16,
+ 49, 37, 52, 8, 18, 44, 50, 43, 11, 1,
+ 21, 22, 17, 35, 28, 53, 56, 16, 11, 44}</pre></td></tr><tr><td><pre>{146, 22, 41, 88, 123, 99, 43, 110, 25, 64,
+ 141, 110, 70, 34, 99, 103, 60, 64, 142, 109,
+ 133, 144, 72, 68, 25, 32, 21, 140, 30, 105,
+ 32, 72, 114, 97, 35, 131, 103, 110, 133, 81,
+ 125, 36, 76, 78, 77, 47, 50, 94, 22, 20}</pre></td></tr></table></td></tr><tr><td><pre>Returns: { 3,  9,  17,  22,  31,  43,  44 }</pre></td></tr><tr><td></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

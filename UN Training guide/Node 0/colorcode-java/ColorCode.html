@@ -1,0 +1,17 @@
+<html><head><title>ColorCode</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>An electronics manufacturer has called you in to make a program to decode resistor color codes.  You are given a String[] <b>code</b> containing three elements corresponding to the first three color bands on a resistor.  Return the # of Ohms the resistor represents.<br></br><br></br>
+The first two bands of resistors represent the value, while the third is a multiplier, as shown in the following chart:<br></br>
+<pre>
+Color:      Value:       Multiplier:
+
+black         0                   1
+brown         1                  10
+red           2                 100
+orange        3               1,000
+yellow        4              10,000
+green         5             100,000
+blue          6           1,000,000
+violet        7          10,000,000
+grey          8         100,000,000
+white         9       1,000,000,000
+</pre><br></br>
+For example if you are given { &quot;yellow&quot;, &quot;violet&quot;, &quot;red&quot; }, you would return 4700.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>ColorCode</td></tr><tr><td>Method:</td><td>getOhms</td></tr><tr><td>Parameters:</td><td>String[]</td></tr><tr><td>Returns:</td><td>long</td></tr><tr><td>Method signature:</td><td>long getOhms(String[] code)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>Actual resistors can have a 4th and even a 5th band representing the tolerance, and the amount the value might change in 1,000 hours of use, respectively, but for our purposes we will only deal with the first three bands.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>code</b> consists of 3 elements each containing one of the color words above, all in lower case.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ &quot;yellow&quot;, &quot;violet&quot;, &quot;red&quot; }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4700</pre></td></tr><tr><td><table><tr><td colspan="2">The example from the problem statement.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ &quot;orange&quot;, &quot;red&quot;, &quot;blue&quot; }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 32000000</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ &quot;white&quot;, &quot;white&quot;, &quot;white&quot; }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 99000000000</pre></td></tr><tr><td><table><tr><td colspan="2">The maximum possible.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
