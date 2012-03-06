@@ -1,0 +1,24 @@
+<html><head><title>TheQuestionsAndAnswersDivTwo</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+John and Brus have become very famous people all over the world, especially in Bolivia.
+A man in Bolivia decided to write a story about them.
+To make the story more truthful, he set up an interview with John.
+He prepared a list of distinct simple "Yes" or "No" questions and he enlisted the help of two friends to transcribe the interview.
+Each time he asked a question, one friend wrote down the question while the other friend wrote down the answer.
+He was very nervous when conducting the interview, so he might have asked some of the questions multiple times.
+However, John's answers always remained the same for the same questions.
+</p>
+
+<p>
+Unfortunately, the friend who was writing down John's answers lost his list.
+You are given a String[] <b>questions</b>, where the i-th element is the i-th question asked.
+In a desperate attempt to remember the answers, the Bolivian has decided to write down all the possible ways that John might have answered the questions.
+By doing this, he hopes that he will be able to recognize the correct combination of answers.
+Return the total number of combinations that he will have to write down.
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>TheQuestionsAndAnswersDivTwo</td></tr><tr><td>Method:</td><td>find</td></tr><tr><td>Parameters:</td><td>String[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int find(String[] questions)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>Two questions are considered to be the same if corresponding elements of <b>questions</b> are absolutely the same Strings.</td></tr><tr><td align="center" valign="top">-</td><td>All questions are case-sensitive, i.e., lowercase and uppercase equivalents of the same letter are considered to be different characters.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>questions</b> will contain between 1 and 10 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>questions</b> will contain between 1 and 50 characters, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>questions</b> will be a lowercase letter ('a'-'z'), uppercase letter ('A'-'Z'), question mark ('?') or underscore ('_').</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;How_are_you_doing?&quot;, &quot;How_do_you_like_our_country?&quot;, &quot;How_are_you_doing?&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 4</pre></td></tr><tr><td><table><tr><td colspan="2">There are four ways to answer this sequence of questions:
+<ul>
+<li>"Yes", "Yes", "Yes";</li>
+<li>"Yes", "No", "Yes";</li>
+<li>"No", "Yes", "No";</li>
+<li>"No", "No", "No".</li>
+</ul></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;Whazzup?&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">Just a single question.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;Are_you_ready?&quot;, &quot;Are_you_ready?&quot;, &quot;Are_you_ready?&quot;, &quot;Are_you_ready?&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">All these questions are the same.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;Do_you_like_my_story?&quot;, &quot;Do_you_like_my_story&quot;, &quot;DO_YOU_LIKE_MY_STORY?&quot;, &quot;Do__you__like__my__story?&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 16</pre></td></tr><tr><td><table><tr><td colspan="2">All these questions are distinct.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

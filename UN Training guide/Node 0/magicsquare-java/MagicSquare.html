@@ -1,0 +1,18 @@
+<html><head><title>MagicSquare</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+A magic square is a 3x3 array of numbers, such that the sum of each row, column, and diagonal are all the same.  For example:
+</p>
+<pre>
+
+    8 1 6
+    3 5 7
+    4 9 2
+</pre>
+<p>
+In this example, all rows, columns, and diagonals sum to 15.
+</p>
+<p>
+You will be given a int[] representing the nine numbers of a magic square, listed left-to-right, top-to-bottom.  However, one of these numbers will be replaced by a -1.  Write a method to determine which number was removed.  For example, if the 7 was removed from the magic square above, you would be given { 8, 1, 6, 3, 5, -1, 4, 9, 2 }, and your program should return 7.
+</p>
+<p>
+The completed magic square will consist of exactly 9 distinct positive integers.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>MagicSquare</td></tr><tr><td>Method:</td><td>missing</td></tr><tr><td>Parameters:</td><td>int[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int missing(int[] square)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>square</b> will contain exactly 9 elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>square</b> will either be -1 or be between 1 and 100, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Exactly one element of <b>square</b> will be -1.</td></tr><tr><td align="center" valign="top">-</td><td>The eight elements of <b>square</b> that are not -1 will be distinct.</td></tr><tr><td align="center" valign="top">-</td><td>The input will be such that a number between 1 and 100, inclusive, can be found to complete the magic square, and it will not be equal to any of the other 8 numbers in the square.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ 8, 1, 6, 3, 5, -1, 4, 9, 2 }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 7</pre></td></tr><tr><td><table><tr><td colspan="2">This is the example from the problem statement.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ -1, 1, 6, 3, 5, 7, 4, 9, 2 }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 8</pre></td></tr><tr><td><table><tr><td colspan="2">The same square, but this time with the number 8 removed.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{ 5, 15, 13, 19, 11, 3, 9, 7, -1 }</pre></td></tr></table></td></tr><tr><td><pre>Returns: 17</pre></td></tr><tr><td><table><tr><td colspan="2">The missing number is 17.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
