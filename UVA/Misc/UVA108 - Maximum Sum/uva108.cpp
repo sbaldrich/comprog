@@ -5,7 +5,7 @@
 
 using namespace std;
 
-#define oo 0x7FFFFFFF
+#define oo 0x7FFFFFF3
 
 ostream& operator<<(ostream& out , vector<int> v)
 {
@@ -59,6 +59,7 @@ int main()
 		{
 			for(int k=0 ;k<n;k++)
 				v[k] = p[i][k] - p[j][k];
+			cout << "Testing " << v << endl;
 			best = max(best,kadane(v));
 		}
 	}
