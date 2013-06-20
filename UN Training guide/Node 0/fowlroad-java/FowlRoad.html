@@ -1,0 +1,34 @@
+<html><head><title>FowlRoad</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>The highway extends endlessly headed east and west. Bob the chicken walks in a 
+sequence of straight lines. Given Bob's path, we want to figure out 
+how many times he crosses the road (assuming he doesn't become road kill).
+We will not count it as a crossing if Bob moves onto the road, possibly wanders 
+along the road, and then returns to the side he entered the road from.
+<p>
+The road has negligible width, so it is just a horizontal line running along a given y coordinate.
+Create a class FowlRoad that contains a method crossings that is given <b>roadY</b> (the
+y coordinate of the road), and int[]s <b>bobX</b> and <b>bobY</b> giving Bob's path.  It should
+return the number of times that Bob crosses the road.
+</p><p>
+The ith elements of <b>bobX</b> and <b>bobY</b> give the coordinates of a point in Bob's path.
+Bob starts at the first point, and proceeds in a straight line to the next point,
+continuing until he finishes at the last point. Bob does not start or end on the road.
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>FowlRoad</td></tr><tr><td>Method:</td><td>crossings</td></tr><tr><td>Parameters:</td><td>int, int[], int[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int crossings(int roadY, int[] bobX, int[] bobY)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>bobX</b> contains between 2 and 50 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>bobY</b> contains the same number of elements as <b>bobX</b>.</td></tr><tr><td align="center" valign="top">-</td><td><b>roadY</b> and each element of <b>bobX</b> and each element of <b>bobY</b> is between -100 and 100, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Neither the first nor the last element of <b>bobY</b> is equal to <b>roadY</b>.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>6</pre></td></tr><tr><td><pre>{3,7,9,2}</pre></td></tr><tr><td><pre>{-3,8,8,2}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   As Bob goes from (3,-3) to (7,8) he crosses the road. From (7,8) to (9,8) he is
+   moving parallel to the road, not crossing it. But when he goes from (9,8) to 
+   (2,2) he crosses the road again.
+
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>10</pre></td></tr><tr><td><pre>{3,7,9,2}</pre></td></tr><tr><td><pre>{-3,8,8,2}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   Bob wanders around on the south side of the road, never crossing it.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>0</pre></td></tr><tr><td><pre>{3,2,5,6,9}</pre></td></tr><tr><td><pre>{2,0,0,2,-88}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   Bob wanders from the north side onto the road, along the road, then back to
+   the north side at (6,2). On his last segment he crosses the road from the
+   north side to the south side.
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>0</pre></td></tr><tr><td><pre>{3,2,5,6,9}</pre></td></tr><tr><td><pre>{-2,0,0,2,-88}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">
+
+   This is the same as the preceding example except that Bob starts on the south
+   side of the road at (3,-2). He wanders onto the road, along the road and then
+   onto the north side thereby completing a crossing from south to north. On his 
+   last segment he crosses the road from north to south.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

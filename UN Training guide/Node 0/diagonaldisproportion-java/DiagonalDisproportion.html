@@ -1,0 +1,26 @@
+<html><head><title>DiagonalDisproportion</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+<i>Note: this problem statement contains images that may not display properly if viewed outside the applet.</i>
+</p>
+
+<p>
+You are to calculate the diagonal disproportion of a square matrix.  The diagonal disproportion of a square matrix is the sum of the elements of its main diagonal minus the sum of the elements of its collateral diagonal. The main and collateral diagonals of a square matrix are shown in figures 1 and 2 respectively.
+</p>
+
+<p>
+<img src="http://www.topcoder.com/contest/problem/DiagonalDisproportion/DiagonalDisproportion1.GIF"></img>
+<img src="http://www.topcoder.com/contest/problem/DiagonalDisproportion/DiagonalDisproportion2.GIF"></img>
+</p>
+
+<p>
+The elements of the main diagonal are shown in green in figure 1, and the elements of the collateral diagonal are shown in cyan in figure 2.
+</p>
+
+<p>
+Given a String[] <b>matrix</b>, return its diagonal disproportion.  The j'th character of the i'th element of <b>matrix</b> should be treated as the element in the i'th row and j'th column of the matrix.
+</p>
+</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>DiagonalDisproportion</td></tr><tr><td>Method:</td><td>getDisproportion</td></tr><tr><td>Parameters:</td><td>String[]</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int getDisproportion(String[] matrix)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>matrix</b> will contain between 1 and 50 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>matrix</b> will contain only digits ('0'-'9').</td></tr><tr><td align="center" valign="top">-</td><td>The number of characters in each element of <b>matrix</b> will be equal to the number of elements in <b>matrix</b>.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;190&quot;,&quot;828&quot;,&quot;373&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2">The sum of the elements of the main diagonal is 1+2+3 = 6.
+The sum of the elements of the collateral diagonal is 0+2+3 = 5.
+So, the answer is 6-5 = 1.
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;9000&quot;,&quot;0120&quot;,&quot;0000&quot;,&quot;9000&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: -1</pre></td></tr><tr><td></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;6&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td><table><tr><td colspan="2">The matrix has only one element, and this element lies on both the main and collateral diagonals.
+</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;7748297018&quot;,&quot;8395414567&quot;,&quot;7006199788&quot;,&quot;5446757413&quot;,&quot;2972498628&quot;,
+&quot;0508396790&quot;,&quot;9986085827&quot;,&quot;2386063041&quot;,&quot;5687189519&quot;,&quot;7729785238&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: -24</pre></td></tr><tr><td></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

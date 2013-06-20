@@ -1,0 +1,26 @@
+<html><head><title>NumberMagicEasy</title></head><body  ><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><i>NOTE: This problem statement contains images that may not display properly if viewed outside of the applet.</i>
+<br></br>
+<br></br>
+Taro shows a magic trick to Hanako.
+<br></br>
+<br></br>
+<i>
+Taro: Hello Hanako. I'll show you a magic trick. Please imagine a positive integer less than or equal to 16.<br></br>
+Hanako: OK. I imagined it.<br></br>
+Taro: (Taro shows card 1 to Hanako.) Does this card contain your number?<br></br>
+Hanako: Yes.<br></br>
+Taro: (Taro shows card 2 to Hanako.) Does this card contain your number?<br></br>
+Hanako: No.<br></br>
+Taro: (Taro shows card 3 to Hanako.) Does this card contain your number?<br></br>
+Hanako: Yes.<br></br>
+Taro: (Taro shows card 4 to Hanako.) Does this card contain your number?<br></br>
+Hanako: Yes.<br></br>
+Taro: Your number is 5!<br></br>
+</i>
+<br></br>
+<img src="http://www.topcoder.com/contest/problem/NumberMagicEasy/cards.jpg"></img>
+<br></br>
+(Card 1 contains 1, 2, 3, 4, 5, 6, 7 and 8. Card 2 contains 1, 2, 3, 4, 9, 10, 11 and 12. Card 3 contains 1, 2, 5, 6, 9, 10, 13 and 14. Card 4 contains 1, 3, 5, 7, 9, 11, 13 and 15.)
+<br></br>
+<br></br>
+Your task is to write a program that simulates this magic trick. You are given Hanako's answers in the string <b>answer</b>. The i-th character is 'Y' if she answered "yes" to the i-th question, and 'N' if she answered "no" to the i-th question. Return the integer Hanako imagined.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>NumberMagicEasy</td></tr><tr><td>Method:</td><td>theNumber</td></tr><tr><td>Parameters:</td><td>string</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int theNumber(string answer)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>answer</b> will contain exactly 4 characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>answer</b> will be 'Y' or 'N'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YNYY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 5</pre></td></tr><tr><td><table><tr><td colspan="2">The example from the statement.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YNNN&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 8</pre></td></tr><tr><td><table><tr><td colspan="2">8 is the only number that exists on the first card and does not exist on any other cards.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NNNN&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 16</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;YYYY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>&quot;NYNY&quot;</pre></td></tr></table></td></tr><tr><td><pre>Returns: 11</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
