@@ -32,7 +32,7 @@ int main()
 			break;
 		if(test>1)
 			printf("\n");
-		memset(field, '0', sizeof(field[0][0]) * N * N);
+		memset(field, '0', sizeof(field[0][0]) * R * C);
 		fi(i,R)
 		{
 			fi(j,C)
