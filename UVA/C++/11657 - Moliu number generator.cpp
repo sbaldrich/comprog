@@ -10,17 +10,13 @@ using namespace std;
 map<long long, int> M;
 
 int f(long long n){
-	//printf("f(%d)\n", n);
 	if(present(M,n))
 		return M[n];
 	if(n <= 3)
 		return n;
-	if(!n)
-		return 0;
 	if(n%2 == 0)
 		return M[n] = f(n/2) + 1;
 	int l = f(n-1), r = f(n+1);
-	//printf("n = %d -> l:%d, r:%d\n", n, l, r);
 	return M[n] = min(f(n-1), f(n+1)) + 1;
 }
 
