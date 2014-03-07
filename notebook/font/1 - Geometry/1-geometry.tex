@@ -1,0 +1,192 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}	
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{tocloft} %Those cute dots on TOC
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newmintedfile[cppcodefile]{cpp}{linenos=true,frame=leftline,framesep=2mm,tabsize=4}
+\newminted{cpp}{linenos=true,frame=leftline,framesep=2mm}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\rightmark}
+\fancyhead[L]{Competitive Programming Notebook : \textbf{Geometry}}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R] {\thepage}
+
+
+\title{Competitive Programming Notebook : Geometr\'ia}
+\author{Santiago Baldrich}
+\date{v1.0}
+\begin{document}
+\tableofcontents
+\newpage
+
+%:Start
+
+%:Util
+
+\section{Util}
+Functions and definitions necessary to use the presented algorithms. Whenever possible, methods will be presented as implementations of prototype functions that were presented on a minimal viable code \textit{(Is that a thing? This "minimal viable code"? I meant the minimal implementation necessary to obtain basic functionality)}.
+%:util:cmp
+
+
+\subsection{Comparison of floating point numbers }\label{util:cmp}
+	\cppcodefile{../code/cpp/geometry/util/comp.cpp}
+%:util:point
+
+\subsection{Point Class}\label{util:point}
+	Minimal Point Class definition for multiple purposes.\\ Requires \ref{util:cmp}:\verb|cmp| and \verb|iostream|.
+	\cppcodefile{../code/cpp/geometry/util/point_minimal.cpp}
+%:util:quadrant
+\subsection{Quadrant}
+Determine the quadrant where a point is positioned. The point $(0,0)$ is classified as the fifth quadrant since it doesn't belong to any of them.\\
+Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
+\cppcodefile{../code/cpp/geometry/util/quadrant.cpp}  
+
+%:util:comparators
+
+\subsection{Comparators}
+Comparators to sort points to prepare them for use with more complex algorithms. To use them it is necessary to set the pivot of \verb|Point| to the lowest (by operator $<$) in the vector. \verb|*min_element(all(v))| is generally a good choice.
+\subsubsection{Radial Comparator}\label{util:radcomp}
+The points are sorted by the direction of the turn between them. If they're collinear, the distance to the origin is used to "break the tie".\\
+Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
+
+\cppcodefile{../code/cpp/geometry/util/radcomp.cpp}
+
+\subsubsection{Polar Comparator}\label{util:polarcomp}
+The radial comparator in \ref{util:radcomp} could fail if the point do not lie in the same quadrant. This comparator takes care of this by finding the quadrant first and using it to determine the order of the points (if they differ).\\
+Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
+\cppcodefile{../code/cpp/geometry/util/polarcomp.cpp} 
+
+
+%:distance:distp2p
+
+\section{Distance}
+\subsection{Point to point}\label{distance:p2p}
+	Euclidean distance defined as $\sqrt{(x_2 - x_1)^2 + (y_2 - y_1) ^ 2}$.\\Requires \ref{util:point}:\verb|Point| and \verb|cmath|.
+	\cppcodefile{../code/cpp/geometry/distance/p2p.cpp}
+	
+\subsection{Point to line (or segment)}\label{distance:p2l}
+	Compute the distance between the point and the line specified by the two other points given. If the boolean parameter \verb|is_segment| is \verb|true| those two points are treated as the endpoints of a line segment.\\ Requires \ref{distance:p2p}:\verb|distance (p2p)|.
+	\cppcodefile{../code/cpp/geometry/distance/p2line.cpp}
+
+\section{Angles}
+
+%:angles:angle
+
+\subsection{Angle between vectors}\label{angles:angle}
+	Compute the angle between the vectors defined by \verb|p-r| and \verb|q-r|. The formula comes from the definition of dot and cross products: \[ A \cdot B = |A||B|\cos(c)\]
+				\[ A \times B = |A||B|\sin(c)\] 
+				\[\frac{\sin(c)}{\cos(c)} = \frac{A \times B}{A \cdot B}  = \tan(c)\]	
+	Requires \ref{util:point}:\verb|Point|
+ 	\cppcodefile{../code/cpp/geometry/angles/angle.cpp}
+
+%:angles:turn
+
+\subsection{Turn between vectors}\label{angles:turn}
+	Determine the sign of the turn between the vectors defined by \verb|p-r| and \verb|q-r|. The cross product is negative it the turn is to the right and positive if the turn is to the left.\\
+	 Requires \ref{util:point}:\verb|Point| and \ref{util:cmp}:\verb|cmp|
+ 	\cppcodefile{../code/cpp/geometry/angles/turn.cpp}
+%:angles:piseg
+
+\subsection{Point in segment}\label{angles:piseg}	
+
+	Determine whether a given point \verb|r| is inside the segment defined by \verb|p| and \verb|q|. If the point is inside the segment, two conditions must be met:
+	\begin{itemize}
+		\item The turn between the vectors \verb|p-q| and \verb|r-q| is zero (they are parallel).
+		\item The dot product between the vector formed by \verb|p-r| and \verb|q-r| (the testing point as the initial point for both vectors) is less than or equal to $0$ (meaning the two vectors have opposite direction).
+	\end{itemize}
+Requires \ref{util:cmp}:\verb|cmp|, \ref{util:point}:\verb|Point|, \ref{angles:turn}:\verb|turn|
+	\cppcodefile{../code/cpp/geometry/angles/between.cpp}
+\section{Polygons}
+%:poly:pipoly
+
+\subsection{Point in polygon}\label{poly:pipoly}	
+	Determine whether a given point \verb|r| is positioned outside, on the frontier or inside (\verb|0,-1,1|) respectively of the given polygon.\textbf{\textit{The polygon must be ordered clockwise or counter-clockwise for this algorithm to work!.}} The underlying idea is to take the segment formed by each pair of adjacent points belonging to the polygon and determine if the given point is inside this segment (If so, a \verb|-1| would be returned), if not, the angles formed by the three points are added together. For a point outside the polygon, this sum is zero because the angles cancel themselves. \\
+	Requires \ref{util:cmp}:\verb|cmp|, \ref{util:point}:\verb|Point|, \ref{angles:angle}:\verb|angle|, \ref{angles:piseg}:\verb|between| and \verb|vector|.
+	
+	\cppcodefile{../code/cpp/geometry/polygons/pointinpoly.cpp}
+\subsection{Convex Hull}
+Requires \ref{util:point}:\verb|Point|, \ref{angles:turn}:\verb|turn|, \ref{util:polarcomp}:\verb|polar_comp|, \verb|vector| and \verb|algorithm|.
+\cppcodefile{../code/cpp/geometry/polygons/convexhull.cpp}
+%:poly:area
+
+\subsection{Area of polygon}
+Find the area of the given polygon (\textbf{must be ordered in clockwise or counter-clockwise fashion}) by triangulation. \\	
+Requires \ref{util:point}:\verb|Point| and \verb|vector|.
+
+\cppcodefile{../code/cpp/geometry/polygons/area.cpp}
+
+\subsection{Intersection of Convex polygons}
+Return the polygon formed at the intersection of two \textbf{convex} polygons. Important: Remember to sort the points before attempting to find the intersection, use \ref{util:radcomp} \verb|radial_comp|. See the field test for more information.
+
+\cppcodefile{../code/cpp/geometry/polygons/poly_intersection.cpp}
+%:poly:poly_intersection}
+
+\subsubsection{Field test: Polygons }\label{poly_intersection:ex}
+\textbf{Source}:\textit{UVA 137}\\
+Given two convex polygons that may or not intersect, find the total area that does not belong to their intersection.
+
+\cppcodefile{../code/cpp/geometry/polygons/poly_intersection_ex.cpp}\label{poly_intersection:ex}
+
+%:Lines
+	
+\section{Lines}
+\subsection{Point of intersection}
+Find the point of intersection between the lines defined by the points given (pairwise).\\
+Requires \ref{util:point}:\verb|Point|
+
+\cppcodefile{../code/cpp/geometry/lines/intersection.cpp}
+
+\subsection{Segment intersection}
+Find if the segments determined by \verb|pq| and \verb|rs| have points in common.\\
+Requires \ref{util:point}:\verb|Point| 
+\cppcodefile{../code/cpp/geometry/lines/seg_intersect.cpp}
+
+%:Circles
+
+\section{Circles}
+\subsection{Diameter of the circumcircle of  a triangle}
+\[ D = \frac{abc}{2 area} = 	\frac{|AB||BC||CA|}{2|\Delta ABC|} = \frac{abc}{2\sqrt{s(s-a)(s-b)(s-c)}}\]
+Where $a$,$b$ and $c$ are the lengths of the sides and $s = \frac{a + b + c}{2}$ is the semiperimeter. $2\sqrt{s(s-a)(s-b)(s-c)}$ is the area of the triangle by \textbf{Heron's Formula}.
+
+%:Circumcenter
+\subsection{Circumcenter of a triangle (Circle from three points)}
+Find the center of the circle that goes trough the three given points. \textbf{Watch out for collinear points!}\\
+Requires \ref{util:point}:\verb|Point|
+
+\cppcodefile{../code/cpp/geometry/circles/circumcenter.cpp}
+
+%:Spanning Circle
+\subsection{Minimum spanning circle}
+Find the minimum circle that contains all the given points.\\
+\ref{util:point}:\verb|Point|, \verb|algorithm|, \verb|vector|
+
+\cppcodefile{../code/cpp/geometry/circles/spanning_circ.cpp}
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+

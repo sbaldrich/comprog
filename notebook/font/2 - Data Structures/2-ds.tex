@@ -1,0 +1,100 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}	
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{tocloft} %Those cute dots on TOC
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newmintedfile[cppcodefile]{cpp}{linenos=true,frame=leftline,framesep=2mm,tabsize=4}
+\newminted{cpp}{linenos=true,frame=leftline,framesep=2mm}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\rightmark}
+\fancyhead[L]{Competitive Programming Notebook : \textbf{Data Structures}}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R] {\thepage}
+
+
+\title{Competitive Programming Notebook : Data Structures}
+\author{Santiago Baldrich}
+\date{v1.0}
+\begin{document}
+\tableofcontents
+\newpage
+
+%:Start
+
+%:Trees
+\section{Trees}
+%:Fenwick
+
+\subsection{Fenwick trees}
+Provides efficient methods for calculation and manipulation of prefix sums. Excels over \textbf{Segment Trees} on ease of coding and memory usage. Yet there are problems for which the Segment tree is a better choice.
+
+\cppcodefile{../code/cpp/ds/trees/fenwick.cpp}
+
+\subsubsection{Field test: Interval Product }
+\textbf{Source}:\textit{Latin America Regional Contest - 2012}\\
+Up to $10^5$ numbers are given. One must update any value or answer if the product between all numbers in any interval $[i,j]$ is positive, negative or zero.
+
+\cppcodefile{../code/cpp/ds/trees/fenwick_ex.cpp}\label{fenwick:ex}
+
+%:Tries
+
+\subsection{Tries}
+A Trie (\textit{its name is an infix of re\textbf{trie}val}) is a powerful structure that can find or insert strings in $O(L)$ time where $L$ is the length of the string.\\
+ I know, it's a shitty intro but Tries are a really useful data structure that allows answering important questions about the nature of a dictionary. They're usually the answer to questions as \textit{how to implement autocompletion on a web browser? } or \textit{given a misspelled word, what's the most probable word that could have been intended?}
+ 
+\cppcodefile{../code/cpp/ds/trees/trie.cpp}
+
+\subsubsection{Field test: Cellphone Typing }\label{trie:ex}
+\textbf{Source}:\textit{Latin America Regional Contest - 2012}\\
+A set of words is given as the dictionary of a cellphone auto-complete algorithm. Return the average number of keystrokes a user must use to write the words in the dictionary.\\
+
+\cppcodefile{../code/cpp/ds/trees/trie_ex.cpp}
+
+\subsection{Segment Trees}
+A Segment Tree is a heap-like data structure that allows update/query operations in logarithmical time. They can help solve a wider range of problems than Fenwick Trees but use more memory (about 4 times more) and take a little more time to be coded.
+
+\cppcodefile{../code/cpp/ds/trees/segment.cpp}
+
+\subsubsection{Field test: Interval Product }
+\textbf{Source}:\textit{Latin America Regional Contest - 2012}\\
+\textit{The same problem solved in \ref{fenwick:ex} with Fenwick Trees but using Segment Trees.}\\
+Up to $10^5$ numbers are given. One must update any value or answer if the product between all numbers in any interval $[i,j]$ is positive, negative or zero.
+
+\cppcodefile{../code/cpp/ds/trees/segment_ex.cpp}
+
+\subsection{Huffman Trees}
+Huffman coding is a compression algorithm that takes into account the frequency or probability of appearance of each symbol to create a space efficient compression scheme.
+\subsubsection{Field test: Entropy }
+\textbf{Source}:\textit{Live Archive - 2088}\\
+Determine the compression ratio between an ASCII encoded string (8bits per character) and an optimal compression (via huffman coding).
+\cppcodefile{../code/cpp/ds/trees/huffman_ex.cpp}
+
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+

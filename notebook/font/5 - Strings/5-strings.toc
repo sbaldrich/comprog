@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}String matching}{2}
+\contentsline {subsection}{\numberline {1.1}Knuth-Morris-Pratt}{2}

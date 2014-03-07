@@ -1,0 +1,89 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}	
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{tocloft} %Those cute dots on TOC
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newmintedfile[cppcodefile]{cpp}{linenos=true,frame=leftline,framesep=2mm,tabsize=4}
+\newminted{cpp}{linenos=true,frame=leftline,framesep=2mm}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\rightmark}
+\fancyhead[L]{Competitive Programming Notebook : \textbf{Number Theory}}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R] {\thepage}
+
+
+\title{Competitive Programming Notebook : Number Theory}
+\author{Santiago Baldrich}
+\date{v1.0}
+\begin{document}
+\tableofcontents
+\newpage
+
+%:Start
+%:GCD
+
+\section{Util}
+\subsection{GCD}\label{util:gcd}
+\textit{GCD} by Euclid's algorithm.\\
+Requires \verb|math|.
+\cppcodefile{../code/cpp/number_theory/gcd.cpp}
+\subsection{LCM}
+Requires \ref{util:gcd} \verb|gcd|.
+\cppcodefile{../code/cpp/number_theory/lcm.cpp}
+\subsection{Bezout's identity}\label{util:bezout}
+Find some $a$ and $b$ such that $ax  + by = gcd(x,y)$\\
+Requires \verb|utility|
+\cppcodefile{../code/cpp/number_theory/bezout.cpp}
+\subsection{Digit sum}	
+Find the sum of all decimal digits present in some interval $a < b < 10^9$.
+\cppcodefile{../code/cpp/number_theory/digit_sum.cpp}
+\subsection{Musical chairs}
+$N$ children are seated on $N$ chairs arranged around a circle. The chairs are numbered from 1 to $N$ . Your program pre-selects a positive number $D$ . The program starts going in circles counting the children starting with the first chair. Once the count reaches $D$ , that child leaves the game, removing his/her chair. The program starts counting again, beginning with the next chair in the circle. The last child remaining in the circle is the winner. Given $N$ and $D$ determine the winner.
+
+\cppcodefile{../code/cpp/number_theory/chairs.cpp}
+
+
+
+\section{Primality}
+\subsection{Primality testing : simple}
+Requires \verb|math|.
+\cppcodefile{../code/cpp/number_theory/is_prime.cpp}
+\subsection{Prime factors}
+Squeeze the prime factors out of $n$.\\
+Requires \verb|math|.
+\cppcodefile{../code/cpp/number_theory/squeeze.cpp}
+\section{Congruences}
+\subsection{Linear congruence}
+Find the lowest non-negative solution to $ax \equiv b \bmod{m}$\\
+Requires \ref{util:bezout} \verb|find_bezout|
+\cppcodefile{../code/cpp/number_theory/congruence.cpp}
+
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+

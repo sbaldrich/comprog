@@ -1,0 +1,58 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}	
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{tocloft} %Those cute dots on TOC
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newmintedfile[cppcodefile]{cpp}{linenos=true,frame=leftline,framesep=2mm,tabsize=4}
+\newminted{cpp}{linenos=true,frame=leftline,framesep=2mm}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\rightmark}
+\fancyhead[L]{Competitive Programming Notebook : \textbf{Strings}}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R] {\thepage}
+
+
+\title{Competitive Programming Notebook : Strings}
+\author{Santiago Baldrich}
+\date{v1.0}
+\begin{document}
+\tableofcontents
+\newpage
+
+%:Start
+
+\section{String matching}
+\subsection{Knuth-Morris-Pratt}
+Find all positions (\textit{0-based indexes}) where a pattern \verb|p| is present in text \verb|t|
+\cppcodefile{../code/cpp/strings/kmp.cpp}
+
+
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+

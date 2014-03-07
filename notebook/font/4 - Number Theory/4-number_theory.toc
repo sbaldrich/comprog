@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Util}{2}
+\contentsline {subsection}{\numberline {1.1}GCD}{2}
+\contentsline {subsection}{\numberline {1.2}LCM}{2}
+\contentsline {subsection}{\numberline {1.3}Bezout's identity}{2}
+\contentsline {subsection}{\numberline {1.4}Digit sum}{2}
+\contentsline {subsection}{\numberline {1.5}Musical chairs}{3}
+\contentsline {section}{\numberline {2}Primality}{4}
+\contentsline {subsection}{\numberline {2.1}Primality testing : simple}{4}
+\contentsline {subsection}{\numberline {2.2}Prime factors}{4}
+\contentsline {section}{\numberline {3}Congruences}{5}
+\contentsline {subsection}{\numberline {3.1}Linear congruence}{5}

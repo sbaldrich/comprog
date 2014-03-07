@@ -1,0 +1,69 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}	
+\usepackage{fancyhdr}
+\usepackage{minted}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{relsize}
+\usepackage{tocloft} %Those cute dots on TOC
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\newmintedfile[cppcodefile]{cpp}{linenos=true,frame=leftline,framesep=2mm,tabsize=4}
+\newminted{cpp}{linenos=true,frame=leftline,framesep=2mm}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[R]{\rightmark}
+\fancyhead[L]{Competitive Programming Notebook : \textbf{Graph Theory}}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[R] {\thepage}
+
+
+\title{Competitive Programming Notebook : Graph Theory}
+\author{Santiago Baldrich}
+\date{v1.0}
+\begin{document}
+\tableofcontents
+\newpage
+
+%:Start
+
+\section{Articulation points}
+\subsection{Articulation vertices}
+Find articulation vertices in a \textbf{connected graph} using Tarjan's algorithm. 
+
+\cppcodefile{../code/cpp/graphs/articulation.cpp}
+\subsubsection{Field test: Networks }
+\textbf{Source}:\textit{UVA 315}\\
+A connected network is given. Find the number of articulation vertices.
+\cppcodefile{../code/cpp/graphs/articulation_ex.cpp}
+
+\section{Classic algorithms}
+\subsection{Prim's minimum spanning tree}
+\cppcodefile{../code/cpp/graphs/prim.cpp}
+\subsection{Lowest common ancestor}
+\cppcodefile{../code/cpp/graphs/lca.cpp}
+
+
+
+\end{document}  
+
+
+
+
+
+
+
+
+
+
+
+
+
