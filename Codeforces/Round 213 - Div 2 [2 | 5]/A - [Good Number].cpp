@@ -2,27 +2,29 @@
 
 using namespace std;
 
-const bool debug = true;
-#define TRACE(x) if(debug) cout << "[ " << #x << " => " << x << " ]" << endl;
-#define rep(i,a,b) for(int i=a;i<=b;i++)
-#define all(c) c.begin(),c.end()
-#define tr(c, it) for(typeof(c.begin()) it = c.begin(); it != c.end(); it++)
-#define max(a,b) (a) > (b) ? (a) : (b) 
-#define min(a,b) (a) < (b) ? (a) : (b) 
+bool f( int x,int k ){
+    int a[10] = {};
+    a[ 0 ] = x == 0;
+	while( x > 0 ){
+        a[ x % 10 ] = 1;
+        x /= 10;
+    }
+    bool all = true;
+    for( int i=0; i<=k; i++ )
+        all &= a[i];
+    return all;
+}
+
 
 int main(){
-	if(debug)
-		freopen("aa.in", "r", stdin);
-	int n,k,ans = 0;
-	string s = "0123456789", x;
-	cin >> n >> k;
-	for(int i=0; i < n; i++){
-		cin >> x;
-		set<char> ss(all(x));
-		string t = string(all(ss)); 
-		if(s.substr(0,k+1) == t.substr(0,k+1))
+    int n , k, ans = 0;
+    cin >> n >> k;
+    for( int i=0,x; i<n; i++ ){
+        cin >> x;
+        if( f( x, k ) )
 			ans++;
-	}
-	cout << ans << endl;
-	return 0;
+    }
+    cout << ans << endl;
+    return 0;
 }
+
