@@ -9,7 +9,7 @@ public class ThreeTeleports{
 		return Math.abs( x2 - x1 ) + Math.abs( y2 - y1 );
 	}
 	
-	public void solve( long x, long y, long time, long tele ){
+	public void solve( long x, long y, short time, long tele ){
 		if( x == hx && y == hy ){
 			ans = Math.min( time, ans );
 			return;	
