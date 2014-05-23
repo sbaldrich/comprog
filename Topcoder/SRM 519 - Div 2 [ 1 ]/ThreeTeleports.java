@@ -9,7 +9,7 @@ public class ThreeTeleports{
 		return Math.abs( x2 - x1 ) + Math.abs( y2 - y1 );
 	}
 	
-	public void solve( long x, long y, short time, long tele ){
+	public void solve( long x, long y, long time, int tele ){
 		if( x == hx && y == hy ){
 			ans = Math.min( time, ans );
 			return;	
@@ -40,6 +40,9 @@ public class ThreeTeleports{
 		}
 		solve( xMe, yMe, 0, 0 );
 		return (int)ans;		
+	}
+	public static void main (String [] args){
+		System.out.println(new ThreeTeleports().shortestDistance( 0, 0, 1000,1000, new String[]{"100 100 200 200", "230 100 50 50", "40 40 50 50"} ) );
 	}
 }
 
