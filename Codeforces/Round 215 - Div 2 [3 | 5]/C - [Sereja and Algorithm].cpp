@@ -19,16 +19,13 @@ int main(){
 		if( r - l < 2 ) 
 			cout << "YES" << endl;
 		else{
-			int cc[3] = {0}, x = 1e5;
+			int cc[3] = {0}, x = 1e5, y = 0;
 			for( int i = 0; i < 3; i++ ){
 				cc[ i ] = c[ i ][ r ] - c[ i ][ l - 1];
 				x = min( x, cc[i] );
+				y = max( y, cc[i] );
 			}
-						
-			/*for( int i = 0; i < 3; i++ )
-				cout << ( (char) ( 'x' + i ) ) << ": " << cc[i] << " ";
-			cout << endl;*/
-			bool ok = ( *max_element( cc, cc + 3 ) - *min_element( cc, cc + 3 ) ) <= 1;
+			bool ok = y - x <= 1;
 			cout << ( ok ? "YES" : "NO" ) << endl;
 		}
 	}
