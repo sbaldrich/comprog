@@ -37,3 +37,6 @@ Icon?
 Thumbs.db
 .metadata/
 
+# Test cases #
+##############
+test-cases
