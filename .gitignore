@@ -40,3 +40,7 @@ Thumbs.db
 # Test cases #
 ##############
 test-cases
+
+# Workspaces #
+##############
+scalaws/
