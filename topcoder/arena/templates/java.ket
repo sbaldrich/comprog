@@ -1,36 +1,17 @@
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-#include <queue>
-#include <deque>
-#include <stack>
-#include <bitset>
-#include <algorithm>
-#include <functional>
-#include <numeric>
-#include <limits>
-#include <tuple>
-#include <utility>
-#include <sstream>
-#include <iostream>
-#include <iomanip>
-#include <cstdio>
-#include <cmath>
-#include <cstdlib>
-#include <ctime>
-
-using namespace std;
+import java.util.*;
+import java.util.regex.*;
+import java.text.*;
+import java.math.*;
 
 
-class <%:class-name%> {
-public:
-	<%:return-type%> <%:method-name%>(<%:param-list%>) {
+public class <%:class-name%>
+{
+	public <%:return-type%> <%:method-name%>(<%:param-list%>){
 		<%:set-caret%>
 	}
-};
-
-
+	
 <%:testing-code%>
+}
+
 //Powered by <%:kawigi-edit-version%>!
 
