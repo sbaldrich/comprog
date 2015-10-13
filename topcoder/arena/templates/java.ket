@@ -4,8 +4,7 @@ import java.text.*;
 import java.math.*;
 
 
-public class <%:class-name%>
-{
+public class <%:class-name%>{
 	public <%:return-type%> <%:method-name%>(<%:param-list%>){
 		<%:set-caret%>
 	}
@@ -14,4 +13,5 @@ public class <%:class-name%>
 }
 
 //Powered by <%:kawigi-edit-version%>!
+
 
