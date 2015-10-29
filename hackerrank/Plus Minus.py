@@ -1,0 +1,6 @@
+n = int(input())
+nums = list(map(int, input().split()))
+pos = sum(x > 0  for x in nums)
+neg = sum(x < 0  for x in nums)
+nul = sum(x == 0 for x in nums)
+print(pos / n, neg / n, nul / n, sep = '\n')
