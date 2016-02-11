@@ -2,26 +2,25 @@ import java.util.*;
 import static java.lang.Math.min;
 public class StripePainter{
 
-    char[] goal;
+    char[] g;
     int memo[][][];
 
-    int f(int st, int sz, char color){
-        if(sz <= 1) return sz == 0 || color == goal[st] ? 0 : 1;
-        if(memo[st][sz][color] > 0 )
-            return memo[st][sz][color];
-        int ans = Integer.MAX_VALUE;
-        for(int i = 1; i <= sz; i++)
-            ans = min( ans, 1 + f( st + 1, i - 1, goal[st] ) + f( st + i, sz - i, color ) );
-        return memo[st][sz][color] = ans;
-    }
-    public int minStrokes(String stripes){
-        memo = new int[51][51][91];
-        goal = stripes.toCharArray();
-        return f(0, stripes.length(), '?');
+    int f(int l, int r, char c){ // Min. number of strokes needed to paint tiles [i,j)
+                                 // with the desired color given that the current color is c
+    	if( l >= r ) return 0;
+    	if( memo[l][r][c] > 0 )
+    		return memo[l][r][c];
+    	if( g[l] == c ) return memo[l][r][c] = f(l+1, r, c);
+    	if( g[r-1] == c ) return memo[l][r][c] = f(l, r-1, c);
+    	int ans = 777;
+    	for( int i= l + 1; i <= r; i++ )
+    		ans = min( ans, 1 + f( l, i, g[l] ) + f( i, r, c ) );
+    	return memo[l][r][c] = ans;
     }
 
-    public static void main(String args[]){
-        System.out.println(new StripePainter().minStrokes("RGBGR"));
-        System.out.println(new StripePainter().minStrokes("RGR"));
+    public int minStrokes(String stripes){
+        memo = new int[51][51][100];
+        g = stripes.toCharArray();
+        return f(0, stripes.length(), '?');
     }
 }
