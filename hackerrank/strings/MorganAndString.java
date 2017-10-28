@@ -1,3 +1,9 @@
+/*
+ * name: Morgan and a String
+ * judge: hackerrank
+ * source: https://www.hackerrank.com/challenges/morgan-and-a-string
+ * tags: greedy
+ */
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 

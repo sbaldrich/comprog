@@ -1,4 +1,4 @@
-# name: Sock Merchant
+# name: Drawing Book
 # source: https://www.hackerrank.com/challenges/drawing-book
 # judge: Hackerrank
 # tags: ad-hoc, warmup
