@@ -40,9 +40,13 @@ Thumbs.db
 # Test cases #
 ##############
 test-cases
+*.in
+*.out
 
 # Workspaces #
 ##############
 scalaws/
 javaws/
 cppws
+*.iml
+.idea
