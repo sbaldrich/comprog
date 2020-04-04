@@ -30,46 +30,15 @@
 \author{Santiago Baldrich}
 \date{v1.0}
 \begin{document}
-\tableofcontents
+\maketitle
 \newpage
+\tableofcontents
 
 %:Start
 
 %:Util
 
-\section{Util}
-Functions and definitions necessary to use the presented algorithms. Whenever possible, methods will be presented as implementations of prototype functions that were presented on a minimal viable code \textit{(Is that a thing? This "minimal viable code"? I meant the minimal implementation necessary to obtain basic functionality)}.
-%:util:cmp
-
-
-\subsection{Comparison of floating point numbers }\label{util:cmp}
-	\cppcodefile{../code/cpp/geometry/util/comp.cpp}
-%:util:point
-
-\subsection{Point Class}\label{util:point}
-	Minimal Point Class definition for multiple purposes.\\ Requires \ref{util:cmp}:\verb|cmp| and \verb|iostream|.
-	\cppcodefile{../code/cpp/geometry/util/point_minimal.cpp}
-%:util:quadrant
-\subsection{Quadrant}
-Determine the quadrant where a point is positioned. The point $(0,0)$ is classified as the fifth quadrant since it doesn't belong to any of them.\\
-Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
-\cppcodefile{../code/cpp/geometry/util/quadrant.cpp}  
-
-%:util:comparators
-
-\subsection{Comparators}
-Comparators to sort points to prepare them for use with more complex algorithms. To use them it is necessary to set the pivot of \verb|Point| to the lowest (by operator $<$) in the vector. \verb|*min_element(all(v))| is generally a good choice.
-\subsubsection{Radial Comparator}\label{util:radcomp}
-The points are sorted by the direction of the turn between them. If they're collinear, the distance to the origin is used to "break the tie".\\
-Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
-
-\cppcodefile{../code/cpp/geometry/util/radcomp.cpp}
-
-\subsubsection{Polar Comparator}\label{util:polarcomp}
-The radial comparator in \ref{util:radcomp} could fail if the point do not lie in the same quadrant. This comparator takes care of this by finding the quadrant first and using it to determine the order of the points (if they differ).\\
-Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
-\cppcodefile{../code/cpp/geometry/util/polarcomp.cpp} 
-
+\include{util}
 
 %:distance:distp2p
 
@@ -82,7 +51,7 @@ Requires \ref{util:cmp}:\verb|cmp| and \ref{util:point}:\verb|Point|.
 	Compute the distance between the point and the line specified by the two other points given. If the boolean parameter \verb|is_segment| is \verb|true| those two points are treated as the endpoints of a line segment.\\ Requires \ref{distance:p2p}:\verb|distance (p2p)|.
 	\cppcodefile{../code/cpp/geometry/distance/p2line.cpp}
 
-\section{Angles}
+\section{Anglllllllles}
 
 %:angles:angle
 
