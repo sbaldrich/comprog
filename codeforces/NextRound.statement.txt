@@ -1,0 +1,7 @@
+---
+title: NextRound
+tags: *special problem, implementation, *800
+link: https://codeforces.com/problemset/problem/158/A
+---
+
+Given a list of integers, count the number of *positive* elements that are greater or equal to the kth greatest element.

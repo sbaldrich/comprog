@@ -1,0 +1,9 @@
+---
+title: WayTooLongWords
+tags: strings, *800
+link: https://codeforces.com/problemset/problem/71/A
+---
+
+Given a word, check if it has more than 10 characters and if so, abbreviate it by showing only the first and last character and a number
+between them representing the count of characters between them.
+

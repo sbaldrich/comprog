@@ -1,0 +1,8 @@
+---
+title: Watermelon
+tags: brute force, math, *800
+link: https://codeforces.com/problemset/problem/4/A
+---
+
+Given int w, determine if there are numbers x, y | x + w = w  and both x and y are even.
+As the answer can use any x and y, just substract 2 from w and see if that number is even.
