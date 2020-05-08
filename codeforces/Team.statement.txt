@@ -1,0 +1,7 @@
+---
+title: Team
+tags: brute force, greedy, *800
+link: https://codeforces.com/problemset/problem/231/A
+---
+
+Given n arrays, return the number of them whose sum is greater than 2.
