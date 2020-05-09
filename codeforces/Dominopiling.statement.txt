@@ -1,0 +1,7 @@
+---
+title: Dominopiling
+tags: greedy, math, *800
+link: https://codeforces.com/problemset/problem/50/A
+---
+
+n * m // 2.
