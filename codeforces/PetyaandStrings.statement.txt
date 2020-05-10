@@ -1,0 +1,7 @@
+---
+title: PetyaandStrings
+tags: implementation, strings, *800
+link: https://codeforces.com/problemset/problem//112/A
+---
+
+Read the strings and compare. Nothing much to it.

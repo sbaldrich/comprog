@@ -1,0 +1,9 @@
+---
+title: Bit++
+tags: implementation, *800
+link: https://codeforces.com/problemset/problem//282/A
+---
+
+The character at position 1 always tells us what to do. 
+Just use that one to determine the operation to perform.
+
