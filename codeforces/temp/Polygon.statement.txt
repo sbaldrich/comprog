@@ -1,0 +1,6 @@
+---
+title: Polygon
+tags: dp, graphs, implementation, shortest paths, *1300
+link: https://codeforces.com/problemset/problem/1360/E
+---
+

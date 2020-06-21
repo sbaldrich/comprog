@@ -1,0 +1,22 @@
+---
+title: ConstructingtheArray
+tags: constructive algorithms, data structures, sortings, *1600
+link: https://codeforces.com/problemset/problem/1353/D
+---
+
+This is an implementation problem. What we have to take care of is not making the 
+search for the next segment too slow. This can be done using a heap in which we 
+put the segments.
+Segments can be compared by the diference of their limits (r - l) and we break ties
+by comparing the l values.
+
+
+
+
+class Segment{
+	int l;
+	int r;
+	Segment(int l, int r){
+		this.l = l;
+		this.r = r;
+	}

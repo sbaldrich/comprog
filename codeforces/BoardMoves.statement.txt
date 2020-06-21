@@ -1,0 +1,24 @@
+---
+title: BoardMoves
+tags: math, *1000
+link: https://codeforces.com/problemset/problem/1353/C
+---
+
+All pieces in the board should be moved to the center square. 
+Now, how many movements does it take for each piece to reach that square? If we draw the board
+we get something like this
+
+. . . .
+ 22222
+ 21112
+ 21012
+ 21112
+ 22222
+. . . .
+
+Thus, we get 8 squares in the shortest distance (other than 0). Then 16 in the second shortest one,
+then 24, etc. So for distance in position i, we have 8i squares. So the answer we're looking for is
+1 * 8 + 2 * 16 + 3 * 24 + 4 * 32 ... which can be rewritten as 8(1 + 4 + 27 + ... + ((n - 1) / 2) ^ 2.
+Computing this number can be done either by iteration or by using the summation formula for E(n^2).
+
+

@@ -1,0 +1,14 @@
+---
+title: Polygon
+tags: dp, graphs, implementation, shortest paths, *1300
+link: https://codeforces.com/problemset/problem/1360/E
+---
+
+Let T[n,n] be the matrix that represents the state of the polygon. 
+The key observation to solve the problem is that the only way for an
+entry T[i,j] to be 1 in a valid state is if at least one of the following two conditions is met:
+
+ - i = n - 1 or j = n - 1, i.e., the entry touches at least one terminal border (where the shot stops).
+ - T[i + 1, j] or T[i, j + 1] contains a *valid* 1.
+
+With this observation, we can reach a solution in a bottom-up manner.

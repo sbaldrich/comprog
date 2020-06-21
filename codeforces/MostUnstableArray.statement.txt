@@ -1,0 +1,9 @@
+---
+title: MostUnstableArray
+tags: constructive algorithms, greedy, math, *800
+link: https://codeforces.com/problemset/problem/1353/A
+---
+
+The maximum value we can get is by setting m to have 0 to it's left and right (thus we can count it twice).
+The edge cases are n = 2 and n = 1, which give the answers m and 0 respectively.
+

@@ -1,0 +1,7 @@
+---
+title: HelpfulMaths
+tags: greedy, implementation, sortings, strings, *800
+link: https://codeforces.com/problemset/problem//339/A
+---
+
+Simple implementation. Split on '+' sign, sort and reprint.

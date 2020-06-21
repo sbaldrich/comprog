@@ -1,0 +1,12 @@
+---
+title: TwoArraysAndSwaps
+tags: greedy, sortings, *800
+link: https://codeforces.com/problemset/problem/1353/B
+---
+
+Using a maximum of k swaps (moving and element from A to B and viceversa) maximize the sum 
+of all elements in A.
+
+Basically, we need to get the min element in A and swap it with the max element in B either k
+times or until there's no gain from doing this operation.
+

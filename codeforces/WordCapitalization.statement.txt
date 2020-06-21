@@ -1,0 +1,7 @@
+---
+title: WordCapitalization
+tags: implementation, strings, *800
+link: https://codeforces.com/problemset/problem/281/A
+---
+
+Nothing to add. The statement is clear.

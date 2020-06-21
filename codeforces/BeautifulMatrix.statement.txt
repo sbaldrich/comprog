@@ -1,0 +1,10 @@
+---
+title: BeautifulMatrix
+tags: implementation, *800
+link: https://codeforces.com/problemset/problem//263/A
+---
+
+You don't actually have to swap the rows/columns to get the answer.
+Just get the manhattan distance from the index of the only 1 in the 
+array and position (2,2): the middle.
+
