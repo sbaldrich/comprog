@@ -1,45 +1,62 @@
 import java.io.*;
 import java.util.*;
 
-class ContestInputReader {
-    BufferedReader reader;
-    StringTokenizer tokenizer;
 
-    ContestInputReader(Reader reader) {
-        this.reader = new BufferedReader(reader);
-    }
+class Main {
+	static final PrintWriter out = new PrintWriter(System.out);
 
-    ContestInputReader(){
-        this(new InputStreamReader(System.in));
-    }
+	static class ContestInputReader {
+		BufferedReader reader;
+		StringTokenizer tokenizer;
 
-    public static ContestInputReader get(String file){
-        if("true".equalsIgnoreCase(System.getProperty("nojudge"))){
-            try {
-                return new ContestInputReader(new FileReader(file));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return new ContestInputReader();
-    }
+		ContestInputReader(Reader reader) {
+			this.reader = new BufferedReader(reader);
+		}
 
-    String readLine(){
-        try {
-            return reader.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException("Couldn't read anything", e);
-        }
-    }
+		ContestInputReader(){
+			this(new InputStreamReader(System.in));
+		}
 
-    String next(){
-        while(tokenizer == null || ! tokenizer.hasMoreElements()){
-            tokenizer = new StringTokenizer(readLine());
-        }
-        return tokenizer.nextToken();
-    }
+		public static ContestInputReader get(String file){
+			if("true".equalsIgnoreCase(System.getProperty("nojudge"))){
+				try {
+					return new ContestInputReader(new FileReader(file));
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+				}
+			}
+			return new ContestInputReader();
+		}
 
-    int nextInt(){
-        return Integer.parseInt(next());
-    }
+		String readLine(){
+			try {
+				return reader.readLine();
+			} catch (IOException e) {
+				throw new RuntimeException("Couldn't read anything", e);
+			}
+		}
+
+		String next(){
+			while(tokenizer == null || ! tokenizer.hasMoreElements()){
+				tokenizer = new StringTokenizer(readLine());
+			}
+			return tokenizer.nextToken();
+		}
+
+		int nextInt(){
+			return Integer.parseInt(next());
+		}
+
+		int[] nextIntArray(){
+			return Arrays.stream(readLine().split("\\s+"))
+						.mapToInt(Integer::parseInt)
+						.toArray();
+		}
+	}
+
+	public static void main(String[] args){
+		ContestInputReader reader = new ContestInputReader();
+		out.close();
+	}
 }
+
