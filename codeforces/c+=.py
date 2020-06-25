@@ -1,3 +1,6 @@
+# This is a sequence that grows exponentially so the computation is fast. 
+# On each iteration it always makes more sense to add the larger number
+# to the smaller one.
 def f(a,b,n,o):
     if a > n or b > n:
         return o
