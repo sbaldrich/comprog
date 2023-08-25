@@ -1,60 +1,66 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
 class Main {
 
-	static class ContestIO {
+		public static void main(String[] args){
+				var fs = new FastScanner();
+				var out = System.out;
+				// ::template-entry-point
+				out.close();
+		}
+
 		
-		PrintWriter out = new PrintWriter(System.out);
-		BufferedReader reader;
+		static class FastScanner {
+				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				StringTokenizer st = new StringTokenizer("");
 
-		StringTokenizer tokenizer;
+				String next() {
+						while (!st.hasMoreTokens()) {
+								try {
+										st = new StringTokenizer(br.readLine());
+								} catch (IOException e) {
+								}
+						}
+						return st.nextToken();
+				}
 
-		ContestIO(Reader reader) {
-			this.reader = new BufferedReader(reader);
+				int nextInt() {
+						return Integer.parseInt(next());
+				}
+
+				int[] readArray() {
+						try {
+								String line = br.readLine().trim();
+
+								if (line.isEmpty())
+										return new int[0];
+
+								String[] tokens = line.split("\\s+");
+
+								int n = tokens.length;
+
+								int[] a = new int[n];
+
+								for (int i = 0; i < n; i++)
+										a[i] = Integer.parseInt(tokens[i]);
+
+								return a;
+						} catch (IOException e) {
+								throw new RuntimeException(e);
+						}
+				}
+
+				int[] nextIntArray(int n) {
+						int[] a = new int[n];
+						for (int i = 0; i < n; i++)
+								a[i] = nextInt();
+						return a;
+				}
+
+				long nextLong() {
+						return Long.parseLong(next());
+				}
 		}
 
-		static ContestIO get(){
-			return new ContestIO(new InputStreamReader(System.in));
-		}
-
-		static ContestIO get(String file){
-			try{
-				return new ContestIO(new FileReader(file));
-			} catch(IOException ex){
-				return ContestIO.get();
-			}
-		}
-
-		String readLine(){
-			try {
-				return reader.readLine();
-			} catch (IOException e) {
-				throw new RuntimeException("Couldn't read anything", e);
-			}
-		}
-
-		String next(){
-			while(tokenizer == null || ! tokenizer.hasMoreElements()){
-				tokenizer = new StringTokenizer(readLine());
-			}
-			return tokenizer.nextToken();
-		}
-
-		int nextInt(){
-			return Integer.parseInt(next());
-		}
-
-		long nextLong(){
-			return Long.parseLong(next());
-		}
-	}
-
-
-	public static void main(String[] args){
-		ContestIO io = ContestIO.get("__input.txt");
-		::template-entry-point::
-		io.out.close();
-	}
 }
-
