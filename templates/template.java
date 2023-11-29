@@ -4,17 +4,32 @@ import java.io.*;
 class Main {
 
 		public static void main(String[] args){
-				var fs = new FastScanner();
+				var fs = FastScanner.fromStdin();
 				var out = System.out;
 				// ::template-entry-point
 				out.close();
 		}
-
 		
 		static class FastScanner {
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+				BufferedReader br; 
 				StringTokenizer st = new StringTokenizer("");
 
+				private FastScanner(Reader reader){
+						this.br = new BufferedReader(reader);
+				}
+
+				static FastScanner fromStdin(){
+						return new FastScanner(new InputStreamReader(System.in));
+				}
+				
+				static FastScanner fromFile(){
+						try{
+								return new FastScanner(new FileReader("input.in"));		
+						} catch (FileNotFoundException ex){
+								throw new RuntimeException(ex);
+						}
+				}
+				
 				String next() {
 						while (!st.hasMoreTokens()) {
 								try {
