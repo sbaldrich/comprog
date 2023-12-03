@@ -6,21 +6,21 @@ import itertools
 import math
 import re
 
-with open('input.in') as file:
-    lines = file.read().strip().split('\n')
+with open("input.in") as file:
+    lines = file.read().strip().split("\n")
 
 bounds = list(itertools.product((-1, 0, 1), (-1, 0, 1)))
 symbols = {
     (i, j)
     for i, l in enumerate(lines)
     for j, x in enumerate(l)
-    if x != '.' and not x.isdigit()
+    if x != "." and not x.isdigit()
 }
 
 sum_of_parts = 0
 parts_by_symbol = collections.defaultdict(set)
 for i, l in enumerate(lines):
-    for match in re.finditer(r'\d+', l):
+    for match in re.finditer(r"\d+", l):
         n = int(match.group(0))
         boundary = {
             (i + di, j + dj)
