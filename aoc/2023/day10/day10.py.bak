@@ -1,0 +1,119 @@
+import itertools
+import re
+import math
+from collections import deque
+
+with open("input.small.in") as file:
+    lines = file.read().strip().split('\n')
+
+grid = [[' '] * len(lines[0]) * 2 for i in range(2 * len(lines))]
+for i, l in enumerate(lines):
+    grid[2*i + 1][1::2] = l
+
+
+def debug_grid():
+    for r in grid:
+        for c in r:
+            print(f"{c:>3}", end='')
+        print()
+
+
+for i, l in enumerate(grid):
+    for j, c in enumerate(l):
+        if c == 'S':
+            start = i, j
+            break
+
+
+q = deque()
+seen = set()
+# row, col, steps, entry direction (i.e if last movement was up, then this should be down)
+q.append((*start, 0, 'x'))
+steps = 0
+
+debug_grid()
+
+print("STARTING---")
+
+ans = 0
+while q:
+    # print(q)
+    cr, cc, s, ed = q.popleft()
+
+    seen.add((cr, cc))
+    ch = grid[cr][cc]
+    grid[cr][cc] = str(s)
+    ans = max(ans, s)
+    # print(f'at {cr, cc} : {c}, arrived by from {ed} with {s} steps')
+
+    # debug_grid()
+
+    if ch == 'S':
+        box = [
+            (i, j)
+            for i, j in itertools.product([-2, 0, 2], repeat=2)
+            if abs(i + j) == 2
+        ]
+        valid = ['7|F', '-FL', '-J7', '|LJ']
+        next_entry_dir = ['d', 'r', 'l', 'u']
+        for (r, c), symbols, d in zip(box, valid, next_entry_dir):
+            nr, nc = cr + r, cc + c
+            if nr >= 0 and nc >= 0 and grid[nr][nc] in symbols:
+                nr = nr - r // 2
+                nc = nc - c // 2
+                q.append((nr, nc, s + 1, d))
+        continue
+    match ch:
+        case ' ' | '|' | '-':
+            dir_delta = {
+                'd': (-1, 0),
+                'u': (1, 0),
+                'r': (0, -1),
+                'l': (0, 1)
+            }
+            next_ed = {d: d for d in ['d', 'u', 'r', 'l']}
+            r, c = dir_delta[ed]
+            nr, nc = cr + r, cc + c
+            if (nr, nc) not in seen:
+                q.append((nr, nc, s + (1 if ch != ' ' else 0), next_ed[ed]))
+        case 'J':
+            dir_delta = {
+                'u': (0, -1),
+                'l': (-1, 0)
+            }
+            r, c = dir_delta[ed]
+            nr, nc = cr + r, cc + c
+            next_ed = {'l': 'd', 'u': 'r'}
+            if (nr, nc) not in seen:
+                q.append((nr, nc, s + (1 if ch != ' ' else 0), next_ed[ed]))
+        case 'L':
+            if ed == 'u':
+                nr, nc = cr, cc + 1
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'l'))
+            elif ed == 'r':
+                nr, nc = cr - 1, cc
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'd'))
+        case 'F':
+            if ed == 'r':
+                nr, nc = cr + 1, cc
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'u'))
+            elif ed == 'd':
+                nr, nc = cr, cc + 1
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'l'))
+        case '7':
+            if ed == 'l':
+                nr, nc = cr + 1, cc
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'u'))
+            elif ed == 'd':
+                nr, nc = cr, cc - 1
+                if (nr, nc) not in seen:
+                    q.append((nr, nc, s + 1, 'r'))
+
+
+debug_grid()
+print(ans)
